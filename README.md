@@ -1,27 +1,115 @@
-# Frontend
+# Manga Bookmarker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+- Install linter by running `ng lint`
 
-## Development server
+## Install packages:
+- [primeng](https://primeng.org/installation)
+- [primeflex](https://primeflex.org/installation)
+- [primeicons](https://primeng.org/icons)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+$ npm i primeng primeflex primeicons
 
-## Code scaffolding
+/** file: styles.scss **/
+@import "primeng/resources/primeng.css";
+@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+```
 
-## Build
+## Folder structure
+```
+src/
+├── app/
+│   ├── core/
+│   │   ├── services/
+│   │   ├── guards/
+│   │   ├── interceptors/
+│   │   ├── models/
+│   │   └── utils/
+│   ├── features/
+│   │   ├── feature1/
+│   │   │   ├── components/
+│   │   │   ├── containers/
+│   │   │   ├── services/
+│   │   │   ├── feature1.module.ts
+│   │   │   └── feature1-routing.module.ts
+│   │   └── feature2/
+│   │       ├── components/
+│   │       ├── containers/
+│   │       ├── services/
+│   │       ├── feature2.module.ts
+│   │       └── feature2-routing.module.ts
+│   ├── shared/
+│   │   ├── components/
+│   │   ├── directives/
+│   │   ├── pipes/
+│   │   └── shared.module.ts
+│   ├── app-routing.module.ts
+│   ├── app.component.ts
+│   ├── app.module.ts
+│   └── app.component.html
+├── assets/
+│   ├── images/
+│   └── styles/
+├── environments/
+│   ├── environment.ts
+│   ├── environment.prod.ts
+│   └── environment.staging.ts
+├── styles/
+│   └── global-styles.scss
+├── index.html
+├── main.ts
+├── polyfills.ts
+├── styles.scss
+├── test.ts
+└── tsconfig.app.json
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Breakdown of the Folder Structure:
 
-## Running unit tests
+- **`app/`**: Contains the main application code.
+  - **`core/`**: Holds singleton services, guards, interceptors, models, and utility classes that are used across the app.
+    - **`services/`**: For core services that can be used app-wide.
+    - **`guards/`**: For route guards.
+    - **`interceptors/`**: For HTTP interceptors.
+    - **`models/`**: For TypeScript interfaces and classes that define the shape of data.
+    - **`utils/`**: For utility functions and classes.
+  - **`features/`**: Modular sections of the app, where each feature can have its own module, components, and services.
+    - **`feature1/`**: Contains files related to Feature 1.
+      - **`components/`**: Feature-specific UI components.
+      - **`containers/`**: Feature-specific container components that manage state and interact with services.
+      - **`services/`**: Feature-specific services.
+      - **`feature1.module.ts`**: Feature-specific module file.
+      - **`feature1-routing.module.ts`**: Feature-specific routing configuration.
+    - **`feature2/`**: Contains files related to Feature 2 (similar to Feature 1).
+  - **`shared/`**: Commonly used components, directives, pipes, and modules that are shared across features.
+    - **`components/`**: Shared components.
+    - **`directives/`**: Custom directives.
+    - **`pipes/`**: Custom pipes.
+    - **`shared.module.ts`**: Module that declares and exports shared components, directives, and pipes.
+  - **`app-routing.module.ts`**: Main routing configuration for the application.
+  - **`app.component.ts`**: Root component of the application.
+  - **`app.module.ts`**: Root module of the application.
+  - **`app.component.html`**: Root component's template.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **`assets/`**: Contains static assets like images and styles.
 
-## Running end-to-end tests
+- **`environments/`**: Contains environment configuration files for different deployment environments (e.g., development, production, staging).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **`styles/`**: Global styles for the application.
 
-## Further help
+- **`index.html`**: The main HTML file.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **`main.ts`**: The entry point of the application.
+
+- **`polyfills.ts`**: Polyfills needed for supporting different browsers.
+
+- **`styles.scss`**: Global stylesheet for the application.
+
+- **`test.ts`**: Configuration file for unit tests.
+
+- **`tsconfig.app.json`**: TypeScript configuration specific to the Angular app.
+
+This structure promotes modularity, separation of concerns, and easier maintenance as your application grows. You can adjust it based on the specific needs of your project or team preferences.
