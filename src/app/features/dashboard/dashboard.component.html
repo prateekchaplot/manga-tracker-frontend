@@ -37,9 +37,13 @@
               (keydown.enter)="showItembar=true"></i>
           </td>
 
-          <p-sidebar [(visible)]="showItembar" position="bottom" styleClass="h-30rem">
+          <p-sidebar [(visible)]="showItembar" position="bottom" styleClass="h-23rem">
             <h3 class="text-center">Name</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, unde?</p>
+            <div class="grid text-center">
+              <div class="col-12" *ngFor="let option of itemOptions">
+                <p-button size="small" [severity]="option.severity">{{ option.name }}</p-button>
+              </div>
+            </div>
           </p-sidebar>
         </tr>
       </ng-template>

@@ -27,18 +27,37 @@ export class DashboardComponent {
     }
   ]
 
-  buttons: ButtonModel[] = [
+  itemOptions: ButtonModel[] = [
     {
-      name: 'Add manga',
-      severity: 'success'
-    },
-    {
-      name: 'View complete list',
+      name: 'Open page',
       severity: 'primary'
     },
     {
-      name: 'Manual refresh',
+      name: 'Mark as read',
       severity: 'help'
+    },
+    {
+      name: 'Read till chapter',
+      severity: 'secondary'
+    },
+    {
+      name: 'Remove from list',
+      severity: 'danger'
+    }
+  ]
+
+  buttons: ButtonModel[] = [
+    {
+      name: 'Add manga',
+      severity: 'primary'
+    },
+    {
+      name: 'View complete list',
+      severity: 'secondary'
+    },
+    {
+      name: 'Manual refresh',
+      severity: 'success'
     }
   ]
 }
