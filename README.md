@@ -113,3 +113,6 @@ src/
 - **`tsconfig.app.json`**: TypeScript configuration specific to the Angular app.
 
 This structure promotes modularity, separation of concerns, and easier maintenance as your application grows. You can adjust it based on the specific needs of your project or team preferences.
+
+## Deploy
+ng deploy --repo=https://github.com/<username>/manga-tracker-frontend.git --name="Your Git Username"
