@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     CommonModule,
     SidebarModule,
-    ButtonModule
+    ButtonModule,
+    RouterModule
   ],
   exports: [
     HeaderComponent,

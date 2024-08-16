@@ -8,7 +8,11 @@
       </p-sidebar>
     </div>
 
-    <div class="col text-center text-lg">{{ brandName }}</div>
+    <a class="col no-underline" [routerLink]="'/'">
+      <div class="text-center text-lg">
+        {{ brandName }}
+      </div>
+    </a>
     
     <div class="col-2 text-right align-self-end">      
       <i class="pi pi-user text-primary" tabindex="0" role="button" (click)="showProfile=true" (keydown.enter)="showProfile=true"></i>

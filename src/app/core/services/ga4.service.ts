@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,11 @@ export class Ga4Service {
   
   private readonly GA_MEASUREMENT_ID = 'G-SR06F0LGJW';
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   initializeGoogleAnalytics() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const script = document.createElement('script');
     script.src = `https://www.googletagmanager.com/gtag/js?id=${this.GA_MEASUREMENT_ID}`;
     script.async = true;

@@ -26,9 +26,9 @@
 
           <!-- Update -->
           <td>
-            <span class="text-red-500">{{ item.lastRead }}</span>
+            <span class="text-red-500">{{ item.read }}</span>
             <i class="pi pi-arrow-right text-xs px-1"></i>
-            <span class="text-green-500">{{ item.availableTill }}</span>
+            <span class="text-green-500">{{ item.total }}</span>
           </td>
 
           <!-- -->
@@ -36,27 +36,25 @@
             <i class="pi pi-sync text-primary" role="button" tabindex="0" (click)="showItembar=true"
               (keydown.enter)="showItembar=true"></i>
           </td>
-
-          <p-sidebar [(visible)]="showItembar" position="bottom" styleClass="h-23rem">
-            <h3 class="text-center">Name</h3>
-            <div class="grid text-center">
-              <div class="col-12" *ngFor="let option of itemOptions">
-                <p-button size="small" [severity]="option.severity" (onClick)="option.onClick()">{{ option.name }}</p-button>
-              </div>
-            </div>
-          </p-sidebar>
         </tr>
       </ng-template>
     </p-table>
 
+    <p-sidebar [(visible)]="showItembar" position="bottom" styleClass="h-23rem">
+      <h3 class="text-center">Name</h3>
+      <div class="grid text-center">
+        <div class="col-12" *ngFor="let option of itemOptions">
+          <p-button size="small" [severity]="option.severity" (onClick)="option.onClick()" [label]="option.name" styleClass="w-full"></p-button>
+        </div>
+      </div>
+    </p-sidebar>
+    
     <h3 class="text-center" *ngIf="items.length === 0">No updates available</h3>
   </div>
 
   <div class="grid pt-3 pb-1">
     <div *ngFor="let btn of buttons" class="col-12 md:col-4 text-center p-1">
-      <p-button [severity]="btn.severity" size="small" (onClick)="btn.onClick()">
-        {{ btn.name }}
-      </p-button>
+      <p-button [severity]="btn.severity" size="small" (onClick)="btn.onClick()" styleClass="w-full" [label]="btn.name" [icon]="btn.icon ? btn.icon : ''"></p-button>
 
       <p-dialog *ngIf="btn.code === 'add-manga'" [header]="btn.name" [modal]="true" position="bottom" [(visible)]="addManga.dialog" (onHide)="resetAddManga()">
         <div class="text-left">
@@ -72,3 +70,6 @@
     </div>
   </div>
 </div>
+
+<p-toast position="bottom-center" key="success" styleClass="text-sm w-full"></p-toast>
+<p-toast position="top-center" key="failure" styleClass="text-sm w-full"></p-toast>
