@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { CONSTANTS } from '@models/constants';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +6,8 @@ import { CONSTANTS } from '@models/constants';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  @Input() title = '';
   showMenu = false;
-  showProfile = false;
-  brandName = CONSTANTS.BRAND_NAME;
+
 }

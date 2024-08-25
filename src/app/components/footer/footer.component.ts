@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { CONSTANTS } from '@models/constants';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +6,6 @@ import { CONSTANTS } from '@models/constants';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  brandName = CONSTANTS.BRAND_NAME;
+
+  @Input() title = '';
 }

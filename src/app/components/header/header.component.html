@@ -1,0 +1,17 @@
+<div class="p-2 grid m-0">
+  <div class="col">
+    <a [routerLink]="'/'" class="text-color-secondary no-underline text-lg">{{ title }}</a>
+  </div>
+
+  <div class="col text-right"><i class="pi pi-bars text-lg" (click)="showMenu = true"></i></div>
+</div>
+
+<p-sidebar [(visible)]="showMenu" position="right">
+  <div class="text-center">
+    <h2>{{ title }}</h2>
+    <ul>
+      <li [routerLink]="'/'" (click)="showMenu = false">Home</li>
+      <li [routerLink]="'/library'" (click)="showMenu = false">Library</li>
+    </ul>
+  </div>
+</p-sidebar>
