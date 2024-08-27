@@ -7,7 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ComponentRoutesModule } from './component.routes';
-
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { ComponentRoutesModule } from './component.routes';
     CommonModule,
     ComponentRoutesModule,
     SidebarModule,
-    TableModule
+    TableModule,
+    ButtonModule,
+    InputTextModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,

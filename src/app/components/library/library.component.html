@@ -7,8 +7,7 @@
     <tr>
       <th>S.No.</th>
       <th>Name</th>
-      <th>Total</th>
-      <th>Read</th>
+      <th>RR</th>
     </tr>
   </ng-template>
 
@@ -16,8 +15,37 @@
     <tr>
       <td>{{ rowIndex + 1 }}</td>
       <td>{{ item.name }}</td>
-      <td>{{ item.total }}</td>
-      <td>{{ item.read }}</td>
+      <td>
+        <span *ngIf="item.read !== undefined && item.total !== undefined; else noCnt">
+          {{ item.read }} / {{ item.total }}
+        </span>
+        <ng-template #noCnt>-</ng-template>
+      </td>
     </tr>
   </ng-template>
+
+  <ng-template pTemplate="emptymessage">
+    <tr><td colspan="4">No items found</td></tr>
+  </ng-template>
 </p-table>
+
+<div class="text-center p-2">
+  <p-button label="Add item" size="small" styleClass="w-full" icon="pi pi-plus" (onClick)="showAddItemSidebar = true"></p-button>
+</div>
+
+<p-sidebar position="bottom" [(visible)]="showAddItemSidebar" styleClass="h-30rem">
+  <h4>Add item</h4>
+  <div>
+    <label for="">Name</label>
+    <input type="text" pInputText [(ngModel)]="itemName" />
+  </div>
+
+  <div>
+    <label for="">URL</label>
+    <input type="text" pInputText [(ngModel)]="itemUrl" />
+  </div>
+
+  <div class="text-center p-2">
+    <p-button label="Submit" size="small" styleClass="w-full" icon="pi pi-check" (onClick)="onAddItem()"></p-button>
+  </div>
+</p-sidebar>
